@@ -1,0 +1,114 @@
+@use "../abstracts/mixins";
+
+footer {
+  background-color: var(--primary);
+
+  .footer {
+    &-top {
+      padding: 48px 0;
+
+      &-content {
+        gap: 20px;
+
+        &-item {
+          gap: 20px;
+
+          & * {
+            color: var(--white);
+          }
+
+          &:nth-child(1) {
+            gap: 24px;
+          }
+
+          .footer-top-paragraph {
+            line-height: 1.5;
+            max-width: 76%;
+          }
+
+          .social-list {
+            gap: 20px;
+          }
+
+          .footer-top-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 8px;
+          }
+
+          .shop-info {
+            &-list {
+              gap: 19px;
+            }
+
+            &-item a {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+
+    &-bottom {
+      padding: 24px 0;
+      border-top: 1px solid var(--white);
+
+      &-paragraph {
+        color: var(--white);
+        text-align: center;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+@include mixins.tablet {
+  footer {
+    .footer {
+      &-top {
+        &-content {
+          &-item {
+            &:nth-child(1) {
+              padding-bottom: 40px;
+            }
+
+            .footer-top-paragraph {
+              font-size: 14px;
+              max-width: 373px;
+            }
+          }
+        }
+      }
+
+      &-bottom {
+        &-paragraph {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+@include mixins.mobile {
+  footer {
+    .footer {
+      &-top {
+        &-content {
+          gap: 28px;
+
+          &-item {
+            .footer-top-paragraph {
+              max-width: 100%;
+            }
+
+            .shop-info {
+              &-list {
+                gap: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

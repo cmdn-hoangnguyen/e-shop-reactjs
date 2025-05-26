@@ -1,0 +1,19 @@
+.card {
+  &:hover {
+    &-image {
+      scale: 1.2;
+    }
+    .product-image-wrapper {
+      box-shadow: 0 2px 10px 0 var(--lighter-gray);
+    }
+  }
+
+  &-image-wrapper {
+    overflow: hidden;
+    transition: var(--transition-value);
+  }
+
+  &-image {
+    transition: var(--transition-value);
+  }
+}

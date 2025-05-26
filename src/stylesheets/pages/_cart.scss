@@ -1,0 +1,342 @@
+@use "../abstracts/mixins";
+
+.section {
+  &-cart {
+    min-height: 75vh;
+    padding-top: 100px;
+
+    &-header {
+      padding: 12px 0 24px;
+      border-bottom: 2px solid var(--darker-white);
+    }
+
+    .container {
+      padding: 0 12px;
+    }
+  }
+}
+
+.cart {
+  &-layout {
+    gap: 0;
+    min-height: 75vh;
+    padding-bottom: 50px;
+
+    &-wrapper {
+      padding-right: 40px;
+    }
+  }
+
+  &-table {
+    margin-top: 20px;
+
+    &-head {
+      &-row {
+        gap: 0;
+      }
+
+      &-item {
+        padding: 8px;
+        font-weight: 700;
+        color: var(--darker-gray);
+        font-size: 18px;
+        text-align: left;
+
+        &:first-child,
+        &:last-child {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+
+    &-body {
+      &-row {
+        gap: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--darker-white);
+
+        &:first-child {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+
+  &-status {
+    width: 18px;
+    height: 18px;
+    border-radius: 100px;
+    background-color: var(--error);
+    position: absolute;
+    top: 0;
+    right: 0;
+    translate: 8px -8px;
+
+    &-content {
+      color: var(--white);
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  &-item {
+    height: 200px;
+
+    &:first-child &-content,
+    &:last-child &-content {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &-content {
+      padding: 8px;
+      width: 100%;
+      height: 100%;
+      gap: 12px;
+    }
+
+    &-image-wrapper {
+      width: 150px;
+      max-width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &-price {
+      gap: 8px;
+
+      &-original {
+        font-size: 14px;
+        color: var(--darker-gray);
+        font-style: italic;
+      }
+    }
+
+    &-total-price {
+      font-weight: bold;
+    }
+  }
+
+  &-summary {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 0;
+    border-radius: 16px;
+    box-shadow: 0 0 8px 0 var(--darker-white);
+    border: 1px solid transparent;
+    transition: var(--transition-value);
+    position: sticky;
+    top: 100px;
+    align-self: start;
+
+    &:hover {
+      border-color: var(--secondary);
+    }
+
+    &-content {
+      height: 100%;
+      width: 80%;
+      margin: 0 auto;
+      gap: 20px;
+    }
+
+    &-list {
+      gap: 8px;
+    }
+
+    &-item {
+      &-name {
+        max-width: 75px;
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &-voucher {
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--darker-gray);
+
+      .voucher-input {
+        border: none;
+        max-width: 70%;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .voucher-button {
+        max-width: 30%;
+        padding: 4px 6px;
+        border: none;
+        background-color: var(--secondary);
+        transition: var(--transition-value);
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--primary);
+        }
+      }
+    }
+
+    &-total {
+      &-detail {
+        &-value {
+          font-size: 24px;
+          letter-spacing: 2px;
+        }
+      }
+    }
+
+    &-title {
+      font-size: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    &-quantity {
+      font-size: 12px;
+    }
+
+    .button-checkout {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@include mixins.mobile {
+  .cart {
+    &-layout {
+      &-wrapper {
+        padding-right: 0;
+        padding-bottom: 12px;
+      }
+    }
+
+    &-table {
+      &-head {
+        &-row {
+          align-items: center;
+        }
+
+        &-item {
+          font-size: 12px;
+          padding: 4px;
+        }
+      }
+    }
+
+    &-item {
+      height: 100px;
+
+      &:first-child {
+        font-size: 12px;
+      }
+
+      &-content {
+        padding: 4px;
+        gap: 8px;
+      }
+
+      &-actions {
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 4px;
+      }
+
+      &-name {
+        font-size: 12px;
+      }
+
+      &-price {
+        gap: 4px;
+        flex-direction: column;
+
+        &-original {
+          font-size: 10px;
+        }
+
+        &-final {
+          font-size: 14px;
+        }
+      }
+
+      &-total-price {
+        font-size: 12px;
+      }
+
+      &-value {
+        font-size: 14px;
+      }
+    }
+
+    &-summary {
+      padding: 20px 0;
+
+      &-content {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      &-item {
+        &-name {
+          max-width: 50%;
+          font-size: 12px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      &-voucher {
+        padding-bottom: 4px;
+        border-bottom: 2px solid var(--darker-gray);
+
+        .voucher-input {
+          border: none;
+          max-width: 70%;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .voucher-button {
+          padding: 4px 10px;
+        }
+      }
+
+      &-total {
+        &-detail {
+          &-value {
+            font-size: 18px;
+          }
+        }
+      }
+
+      &-title {
+        font-size: 20px;
+      }
+
+      &-quantity {
+        font-size: 12px;
+      }
+
+      .button-checkout {
+        height: 35px;
+      }
+    }
+  }
+}
