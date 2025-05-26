@@ -11,7 +11,7 @@ export const useProduct = () => {
         if (!response.ok) throw new Error("Failed to fetch");
 
         const data = await response.json();
-        return setProducts(data.products);
+        return setProducts(data);
       } catch (error) {
         console.error("Fetch error:", error);
       }

@@ -113,7 +113,7 @@
   //============== SECTION SUBSCRIBE ==============
   &-subscribe {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent),
-      url("../assets/images/news-letter.png");
+      url("/images/news-letter.png");
     min-height: var(--subscribe-height);
 
     & .section-content {
@@ -224,7 +224,7 @@
           rgba(0, 0, 0, 0.8),
           rgba(0, 0, 0, 0.5)
         ),
-        url("../assets/images/hero-background-mobile.png");
+        url("/images/hero-background-mobile.png");
 
       .hero {
         &-background {
@@ -267,7 +267,7 @@
           rgba(0, 0, 0, 0.8),
           transparent
         ),
-        url("../assets/images/news-letter-tablet.png");
+        url("/images/news-letter-tablet.png");
 
       & .section-content {
         min-height: var(--subscribe-tablet-height);
@@ -381,7 +381,7 @@
           rgba(0, 0, 0, 0.8),
           transparent
         ),
-        url("../assets/images/news-letter-mobile.png");
+        url("/images/news-letter-mobile.png");
 
       & .section-content {
         min-height: var(--subscribe-mobile-height);
