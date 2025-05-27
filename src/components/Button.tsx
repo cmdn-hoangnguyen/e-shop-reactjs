@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { JSX } from "react";
 
 interface ButtonProps {
@@ -19,15 +20,15 @@ export const Button = ({
 
   const classes = [
     isPrimary
-      ? "button button-primary button-borderless"
-      : "button button-add-to-card button-bordered",
+      ? "button-primary button-borderless"
+      : "button-add-to-card button-bordered",
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <button className={classes} onClick={handleClick}>
+    <button className={clsx("button", classes)} onClick={handleClick}>
       {label}
     </button>
   );

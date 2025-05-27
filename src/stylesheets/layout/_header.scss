@@ -1,9 +1,5 @@
 @use "../abstracts/mixins";
 
-#cart-navigation {
-  position: relative;
-}
-
 .header {
   &-container-scrolled {
     box-shadow: 0 0 8px 0 var(--lighter-gray) !important;
@@ -32,6 +28,8 @@
 
       .action {
         &-item {
+          position: relative;
+
           .icon {
             &-search {
               background-image: url("../assets/icons/icon-search-default.svg");
@@ -101,6 +99,8 @@
       }
 
       &-item {
+        position: relative;
+
         &:hover {
           .icon {
             &-user {

@@ -1,3 +1,5 @@
+import type { JSX } from "react";
+
 export interface Service {
   icon: string;
   title: string;
@@ -19,13 +21,12 @@ export interface CartItem extends Product {
 
 export interface Cart {
   cart: CartItem[];
-  cartAmount: HTMLElement | null;
-  cartTable: HTMLElement | null;
-  cartSummaryTotal: HTMLElement | null;
-  cartSummaryList: HTMLElement | null;
-  discountPrice: (price: number, discount: number) => number;
-  totalPrice: (price: number, quantity: number) => number;
-  cartTotal: () => number;
+  addToCart: (product: CartItem) => void;
+  deleteItem: (productId: number) => void;
+  discountPrice: (product: CartItem) => number;
+  calculateTotal: (price: number, quantity: number) => number;
+  calculateCartTotal: (inputValue: string) => number;
+  updateItemQuantity: (productId: number, quantity: number) => void;
 }
 
 export interface PromotionItem {
@@ -42,7 +43,13 @@ export interface NavItem {
 }
 
 export interface ActionItem {
+  id: string;
   iconClass: string;
   href: string;
   ariaLabel: string;
+}
+
+export interface tableColumnItem {
+  title: string | number | JSX.Element;
+  className: string;
 }

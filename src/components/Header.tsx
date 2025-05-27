@@ -2,8 +2,14 @@ import { useEffect, useRef, type JSX } from "react";
 import { headerActionListItems, navigationListItems } from "../constants/data";
 import { NavigateButton } from "./NavigateButton";
 import { IconWrapper } from "./IconWrapper";
+import { useCartContext } from "../contexts/CartContext";
+import clsx from "clsx";
 
 export const Header = (): JSX.Element => {
+  const { cart } = useCartContext();
+
+  const pathname = window.location.pathname;
+
   const headerContainerRef = useRef<HTMLDivElement>(null);
   const headerContentRef = useRef<HTMLDivElement>(null);
 
@@ -35,7 +41,13 @@ export const Header = (): JSX.Element => {
 
   return (
     <header className="header">
-      <div className="header-container" ref={headerContainerRef}>
+      <div
+        className={clsx(
+          "header-container",
+          pathname !== "/" && "header-container-scrolled"
+        )}
+        ref={headerContainerRef}
+      >
         <div
           className="header-content d-flex justify-between items-center"
           ref={headerContentRef}
@@ -55,8 +67,8 @@ export const Header = (): JSX.Element => {
             <ul className="navigation-list d-flex items-center">
               {navigationListItems.map((item, index) => (
                 <li className="navigation-item" key={index}>
-                  <a className="navigation-item-text" href={item.href}>
-                    {item.label}
+                  <a className="navigation-item-text" href={item?.href}>
+                    {item?.label}
                   </a>
                 </li>
               ))}
@@ -64,16 +76,22 @@ export const Header = (): JSX.Element => {
           </nav>
 
           <ul className="action-list d-flex items-center">
-            {headerActionListItems.map((action, index) => (
-              <li className="action-item" key={index}>
+            {headerActionListItems.map((action) => (
+              <li className="action-item" key={action?.id}>
                 <NavigateButton
                   label={
                     <IconWrapper
-                      iconClass={`header-icon ${action.iconClass}`}
+                      iconClass={clsx("header-icon", action?.iconClass)}
                     />
                   }
-                  href={action.href}
+                  href={action?.href}
                 />
+
+                {action?.id === "cart" && !!cart?.length && (
+                  <span className="cart-status d-flex justify-center items-center">
+                    <p className="cart-status-content">{cart?.length}</p>
+                  </span>
+                )}
               </li>
             ))}
           </ul>

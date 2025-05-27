@@ -1,4 +1,10 @@
-import type { ActionItem, NavItem, PromotionItem, Service } from "./types";
+import type {
+  ActionItem,
+  NavItem,
+  PromotionItem,
+  Service,
+  tableColumnItem,
+} from "./types";
 
 export const featuresData: Service[] = [
   {
@@ -84,23 +90,26 @@ export const navigationListItems: NavItem[] = [
 
 export const headerActionListItems: ActionItem[] = [
   {
+    id: "search",
     iconClass: "icon-search",
     href: "/#",
     ariaLabel: "Search",
   },
   {
+    id: "cart",
     iconClass: "icon-cart",
     href: "/cart",
     ariaLabel: "Cart",
   },
   {
+    id: "user",
     iconClass: "icon-user",
     href: "/#",
     ariaLabel: "User",
   },
 ];
 
-export const socialLinks: Omit<ActionItem, "ariaLabel">[] = [
+export const socialLinks: Omit<ActionItem, "ariaLabel" | "id">[] = [
   { iconClass: "social-icon icon-facebook", href: "/#" },
   { iconClass: "social-icon icon-instagram", href: "/#" },
   { iconClass: "social-icon icon-linkedin", href: "/#" },
@@ -143,3 +152,17 @@ export const footerTopContent: { title: string; links: NavItem[] }[] = [
     links: contactInfo,
   },
 ];
+
+export const cartTableItems: tableColumnItem[] = [
+  { title: "No", className: "col-lg-1" },
+  { title: "Product", className: "col-lg-3" },
+  { title: "Detail info", className: "col-lg-3" },
+  { title: "Quantity", className: "col-lg-2" },
+  { title: "Total", className: "col-lg-2" },
+  { title: "", className: "col-lg-1" },
+];
+
+export const voucherData: { [key: string]: number } = {
+  classmethod: 0.3,
+  hoang: 0.99,
+};

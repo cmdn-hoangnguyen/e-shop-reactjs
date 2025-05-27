@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { PromotionItem } from "../constants/types";
 import { NavigateButton } from "./NavigateButton";
 
@@ -26,9 +27,10 @@ export const PromotionCard = ({ promotion, index }: PromotionCardProps) => {
       </div>
 
       <div
-        className={`promotion-detail d-flex-col justify-between ${
-          index === 0 ? "promotion-arrival-content" : ""
-        }`}
+        className={clsx(
+          "promotion-detail d-flex-col justify-between",
+          index === 0 && "promotion-arrival-content"
+        )}
       >
         <h2 className="promotion-title d-flex-col">
           {formatTitle(promotion?.title)}

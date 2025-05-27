@@ -168,25 +168,25 @@
 
       .voucher-input {
         border: none;
-        max-width: 70%;
+        width: 100%;
 
         &:focus {
           outline: none;
         }
       }
 
-      .voucher-button {
-        max-width: 30%;
-        padding: 4px 6px;
-        border: none;
-        background-color: var(--secondary);
-        transition: var(--transition-value);
-        cursor: pointer;
+      // .voucher-button {
+      //   max-width: 30%;
+      //   padding: 4px 6px;
+      //   border: none;
+      //   background-color: var(--secondary);
+      //   transition: var(--transition-value);
+      //   cursor: pointer;
 
-        &:hover {
-          background-color: var(--primary);
-        }
-      }
+      //   &:hover {
+      //     background-color: var(--primary);
+      //   }
+      // }
     }
 
     &-total {
@@ -305,17 +305,14 @@
         border-bottom: 2px solid var(--darker-gray);
 
         .voucher-input {
-          border: none;
-          max-width: 70%;
-
           &:focus {
             outline: none;
           }
         }
 
-        .voucher-button {
-          padding: 4px 10px;
-        }
+        // .voucher-button {
+        //   padding: 4px 10px;
+        // }
       }
 
       &-total {
