@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import type { Product } from "../constants/types";
+import type { Product } from '../constants/types';
 
 export const useProduct = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+	const [products, setProducts] = useState<Product[]>([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch("/data/products.json");
-        if (!response.ok) throw new Error("Failed to fetch");
+	useEffect(() => {
+		const fetchProducts = async () => {
+			try {
+				const response = await fetch('/data/products.json');
+				if (!response.ok) throw new Error('Failed to fetch');
 
-        const data = await response.json();
-        return setProducts(data);
-      } catch (error) {
-        console.error("Fetch error:", error);
-      }
-    };
+				const data = await response.json();
+				return setProducts(data);
+			} catch (error) {
+				console.error('Fetch error:', error);
+			}
+		};
 
-    fetchProducts();
-  }, []);
+		fetchProducts();
+	}, []);
 
-  return { products };
+	return { products };
 };

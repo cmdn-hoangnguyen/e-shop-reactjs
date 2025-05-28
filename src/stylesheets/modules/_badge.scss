@@ -1,23 +1,23 @@
-@use "../abstracts/mixins";
+@use '../abstracts/mixins';
 
 .badge {
-  position: absolute;
-  width: 60px;
-  height: 30px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 12px;
+	position: absolute;
+	width: 60px;
+	height: 30px;
+	border-radius: 20px;
+	font-weight: 700;
+	font-size: 12px;
 
-  &-danger {
-    background-color: var(--error);
-    color: var(--white);
-  }
+	&-danger {
+		background-color: var(--error);
+		color: var(--white);
+	}
 }
 
 @include mixins.mobile {
-  .badge {
-    font-size: 8px;
-    width: 32px;
-    height: 16px;
-  }
+	.badge {
+		font-size: 8px;
+		width: 32px;
+		height: 16px;
+	}
 }

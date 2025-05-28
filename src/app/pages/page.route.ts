@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import cartRoutes from "./cart/cart.route";
-import homeRoutes from "./home/home.route";
-import notFoundRoutes from "./notFound/ notFound.routes";
+import cartRoutes from './cart/cart.route';
+import homeRoutes from './home/home.route';
+import notFoundRoutes from './notFound/ notFound.routes';
 
-const Page = React.lazy(() => import("./Page"));
+const Page = React.lazy(() => import('./Page'));
 
 const pageRoutes = [
-  {
-    path: "/",
-    element: Page,
-    children: [...homeRoutes, ...cartRoutes, ...notFoundRoutes],
-  },
+	{
+		path: '/',
+		element: Page,
+		children: [...homeRoutes, ...cartRoutes, ...notFoundRoutes],
+	},
 ];
 
 export default pageRoutes;

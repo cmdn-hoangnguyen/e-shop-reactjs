@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-const NotFound = React.lazy(() => import("./containers/NotFound"));
+const NotFound = React.lazy(() => import('./containers/NotFound'));
 
 const notFoundRoutes = [
-  {
-    path: "/404",
-    element: NotFound,
-  },
+	{
+		path: '/404',
+		element: NotFound,
+	},
 ];
 export default notFoundRoutes;
