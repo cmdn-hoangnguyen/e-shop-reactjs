@@ -1,9 +1,11 @@
 import { useEffect, useRef, type JSX } from "react";
-import { headerActionListItems, navigationListItems } from "../constants/data";
-import { NavigateButton } from "./NavigateButton";
-import { IconWrapper } from "./IconWrapper";
-import { useCartContext } from "../contexts/CartContext";
+
 import clsx from "clsx";
+
+import { IconWrapper } from "./IconWrapper";
+import { NavigateButton } from "./NavigateButton";
+import { headerActionListItems, navigationListItems } from "../constants/data";
+import { useCartContext } from "../contexts/CartContext";
 
 export const Header = (): JSX.Element => {
   const { cart } = useCartContext();

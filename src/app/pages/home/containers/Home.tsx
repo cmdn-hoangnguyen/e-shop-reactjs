@@ -1,19 +1,20 @@
-import { Button } from "../../../../components/Button";
-import { NavigateButton } from "../../../../components/NavigateButton";
-import { PromotionCard } from "../../../../components/PromotionCard";
-import { MAIN_CONTENT } from "../../../../constants/enum";
-import type { PromotionItem } from "../../../../constants/types";
-import { useProduct } from "../../../../hooks/useProduct";
 import clsx from "clsx";
+
 import { SectionLayout } from "./components/SectionLayout";
+import { Button } from "../../../../components/Button";
+import { IconWrapper } from "../../../../components/IconWrapper";
+import { NavigateButton } from "../../../../components/NavigateButton";
 import { ProductList } from "../../../../components/ProductList";
+import { PromotionCard } from "../../../../components/PromotionCard";
 import { ServiceList } from "../../../../components/ServiceList";
 import {
   featuresData,
   promotionsData,
   valuesData,
 } from "../../../../constants/data";
-import { IconWrapper } from "../../../../components/IconWrapper";
+import { MAIN_CONTENT } from "../../../../constants/enum";
+import type { PromotionItem } from "../../../../constants/types";
+import { useProduct } from "../../../../hooks/useProduct";
 
 const Home: React.FC = () => {
   const { products } = useProduct();

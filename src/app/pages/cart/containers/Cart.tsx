@@ -1,10 +1,12 @@
-import clsx from "clsx";
-import { cartTableItems } from "../../../../constants/data";
-import { useCartContext } from "../../../../contexts/CartContext";
-import { TableBodyCell } from "../../../../components/TableBodyCell";
-import type { CartItem } from "../../../../constants/types";
-import { Button } from "../../../../components/Button";
 import { useState, type ChangeEvent } from "react";
+
+import clsx from "clsx";
+
+import { Button } from "../../../../components/Button";
+import { TableBodyCell } from "../../../../components/TableBodyCell";
+import { cartTableItems } from "../../../../constants/data";
+import type { CartItem } from "../../../../constants/types";
+import { useCartContext } from "../../../../contexts/CartContext";
 
 const Cart: React.FC = () => {
   const { cart, calculateTotal, calculateCartTotal } = useCartContext();
@@ -47,7 +49,7 @@ const Cart: React.FC = () => {
                 </thead>
 
                 <tbody className="cart-table-body">
-                  {!!cart?.length ? (
+                  {cart?.length ? (
                     cart?.map((item: CartItem, index: number) => (
                       <tr className="cart-table-body-row d-grid" key={item?.id}>
                         {cartTableItems?.map((col, colIndex) => (

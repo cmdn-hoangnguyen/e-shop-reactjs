@@ -1,6 +1,7 @@
 import clsx from "clsx";
-import type { PromotionItem } from "../constants/types";
+
 import { NavigateButton } from "./NavigateButton";
+import type { PromotionItem } from "../constants/types";
 
 interface PromotionCardProps {
   promotion: PromotionItem;

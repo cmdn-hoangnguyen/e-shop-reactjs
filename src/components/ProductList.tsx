@@ -1,5 +1,5 @@
-import type { Product } from "../constants/types";
 import { ProductCard } from "./ProductCard";
+import type { Product } from "../constants/types";
 
 export const ProductList = ({ products }: { products: Product[] }) => {
   if (!products.length) {

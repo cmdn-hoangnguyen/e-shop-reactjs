@@ -1,8 +1,10 @@
-import type { Service } from "../constants/types";
-import { MAIN_CONTENT } from "../constants/enum";
 import type { JSX } from "react";
-import { IconWrapper } from "./IconWrapper";
+
 import clsx from "clsx";
+
+import { IconWrapper } from "./IconWrapper";
+import { MAIN_CONTENT } from "../constants/enum";
+import type { Service } from "../constants/types";
 
 export interface ServiceCardProps extends Service {
   mainContent: MAIN_CONTENT;

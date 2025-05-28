@@ -1,9 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
+
 import "./stylesheets/style.scss";
-import { RouterOutlet } from "./app/core/modules/custom-router-dom/RouterOutlet";
-import appRoutes from "./app/app.route";
-import { CartProvider } from "./contexts/CartContext";
 import { ToastContainer } from "react-toastify";
+
+import appRoutes from "./app/app.route";
+import { RouterOutlet } from "./app/core/modules/custom-router-dom/RouterOutlet";
+import { CartProvider } from "./contexts/CartContext";
 
 const App = () => {
   return (

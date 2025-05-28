@@ -1,5 +1,6 @@
-import clsx from "clsx";
 import type { JSX } from "react";
+
+import clsx from "clsx";
 
 interface SectionLayoutProps {
   children: React.ReactNode;

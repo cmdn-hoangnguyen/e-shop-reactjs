@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import type { Product } from "../constants/types";
 
 export const useProduct = () => {

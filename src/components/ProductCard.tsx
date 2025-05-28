@@ -1,6 +1,7 @@
 import type { JSX } from "react";
-import type { CartItem, Product } from "../constants/types";
+
 import { Button } from "./Button";
+import type { CartItem, Product } from "../constants/types";
 import { useCartContext } from "../contexts/CartContext";
 
 interface ProductCardProps {
@@ -34,7 +35,7 @@ export const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
         <div className="product-detail d-flex-col">
           <h3 className="product-detail-name">{product?.name}</h3>
           <div className="d-flex justify-between">
-            {!!product.discount ? (
+            {product.discount ? (
               <>
                 <strong className="product-price high-light">
                   ${discountPrice(product as CartItem)}

@@ -1,6 +1,6 @@
+import { ServiceItem } from "./ServiceItem";
 import type { MAIN_CONTENT } from "../constants/enum";
 import type { Service } from "../constants/types";
-import { ServiceItem } from "./ServiceItem";
 
 interface ServiceListProps {
   data: Service[];

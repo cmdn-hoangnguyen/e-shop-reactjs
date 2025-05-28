@@ -1,7 +1,8 @@
 import type { JSX } from "react";
+
+import { IconWrapper } from "./IconWrapper";
 import type { CartItem } from "../constants/types";
 import { useCartContext } from "../contexts/CartContext";
-import { IconWrapper } from "./IconWrapper";
 
 interface TableBodyCellProps {
   item: CartItem;

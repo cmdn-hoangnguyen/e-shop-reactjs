@@ -1,6 +1,6 @@
-import { footerTopContent, socialLinks } from "../constants/data";
 import { IconWrapper } from "./IconWrapper";
 import { NavigateButton } from "./NavigateButton";
+import { footerTopContent, socialLinks } from "../constants/data";
 
 export const Footer = () => {
   return (
