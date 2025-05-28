@@ -1,78 +1,78 @@
 @use '../abstracts/mixins';
 
 .promotion {
-	&-item {
-		&:hover .promotion-content .promotion-bg {
-			opacity: 0.3;
-		}
-	}
+  &-item {
+    &:hover .promotion-content .promotion-bg {
+      opacity: 0.3;
+    }
+  }
 
-	&-content {
-		width: 100%;
-		height: 359px;
-		position: relative;
-	}
+  &-content {
+    width: 100%;
+    height: 359px;
+    position: relative;
+  }
 
-	&-bg {
-		position: absolute;
-		inset: 0;
-		background-color: var(--lighter-dark);
-		opacity: 0.5;
-		transition: var(--transition-value);
-		z-index: 1;
-	}
+  &-bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--lighter-dark);
+    opacity: 0.5;
+    transition: var(--transition-value);
+    z-index: 1;
+  }
 
-	&-image-wrapper {
-		width: 100%;
-		height: 100%;
-	}
+  &-image-wrapper {
+    width: 100%;
+    height: 100%;
+  }
 
-	&-image {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center;
-	}
+  &-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 
-	&-detail {
-		color: white;
-		position: absolute;
-		left: 40px;
-		top: 50%;
-		height: 139px;
-		z-index: 2;
+  &-detail {
+    color: white;
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    height: 139px;
+    z-index: 2;
 
-		& > .badge {
-			top: -30%;
-		}
-	}
+    & > .badge {
+      top: -30%;
+    }
+  }
 
-	&-title {
-		font-size: 24px;
-		line-height: 1.5;
-		color: var(--white);
-	}
+  &-title {
+    font-size: 24px;
+    line-height: 1.5;
+    color: var(--white);
+  }
 }
 
 @include mixins.mobile {
-	.promotion {
-		&-content {
-			height: 224px;
-		}
+  .promotion {
+    &-content {
+      height: 224px;
+    }
 
-		&-detail {
-			left: 16px;
-			bottom: 16px;
-			height: 68px;
-			top: auto;
-		}
+    &-detail {
+      left: 16px;
+      bottom: 16px;
+      height: 68px;
+      top: auto;
+    }
 
-		&-title {
-			font-size: 14px;
-		}
+    &-title {
+      font-size: 14px;
+    }
 
-		&-arrival-content {
-			max-width: 40%;
-		}
-	}
+    &-arrival-content {
+      max-width: 40%;
+    }
+  }
 }

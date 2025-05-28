@@ -1,41 +1,68 @@
+@use '../abstracts/mixins';
+
 .section-notfound {
-	height: 100vh;
+  min-height: 100vh;
 }
 
 .notfound {
-	&-container {
-		height: fit-content;
-		width: 800px;
-		max-width: 100vw;
-		margin: auto;
-	}
+  &-image-wrapper {
+    width: 420px;
+    max-width: inherit;
+    overflow: hidden;
+  }
 
-	&-header {
-		gap: 12px;
-		margin-bottom: 24px;
-	}
+  &-image {
+    width: 100%;
+    object-fit: cover;
+  }
 
-	&-status {
-		font-size: 80px;
-		font-weight: bold;
-		letter-spacing: 4px;
-		color: var(--gray);
-	}
+  &-header {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
 
-	&-title {
-		font-size: 20px;
-		color: var(--darker-gray);
-	}
+  &-status {
+    font-size: 80px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: var(--gray);
+  }
 
-	&-body {
-		gap: 12px;
-	}
+  &-title {
+    font-size: 20px;
+    color: var(--darker-gray);
+  }
 
-	&-content {
-		width: 540px;
-		max-width: 100vw;
-		text-align: center;
-		line-height: 1.5;
-		padding: 0 24px;
-	}
+  &-body {
+    gap: 12px;
+  }
+
+  &-content {
+    width: 440px;
+    max-width: 100vw;
+    text-align: center;
+    line-height: 1.5;
+    padding: 0 24px;
+  }
+}
+
+@include mixins.tablet {
+  .section-notfound {
+    margin-top: 75px;
+  }
+
+  .notfound {
+    &-image-wrapper {
+      order: 2;
+      width: 280px;
+    }
+
+    &-status {
+      font-size: 64px;
+    }
+
+    &-content {
+      font-size: 12px;
+    }
+  }
 }

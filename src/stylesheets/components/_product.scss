@@ -1,78 +1,82 @@
 @use '../abstracts/mixins';
 
 .product {
-	&-content-wrapper {
-		gap: 14px;
-	}
+  &-content-wrapper {
+    gap: 14px;
 
-	&-content {
-		gap: 16px;
-		position: relative;
+    .button {
+      width: 100%;
+    }
+  }
 
-		& > .badge {
-			top: 16px;
-			left: 16px;
-		}
-	}
+  &-content {
+    gap: 16px;
+    position: relative;
 
-	&-image-wrapper {
-		width: 100%;
-		height: var(--product-image-height);
-		transition: var(--transition-value);
-	}
+    & > .badge {
+      top: 16px;
+      left: 16px;
+    }
+  }
 
-	&-image {
-		width: 100%;
-		height: 100%;
-		object-position: top;
-		object-fit: cover;
-	}
+  &-image-wrapper {
+    width: 100%;
+    height: var(--product-image-height);
+    transition: var(--transition-value);
+  }
 
-	&-detail {
-		color: var(--lighter-dark);
-		gap: 8px;
-	}
+  &-image {
+    width: 100%;
+    height: 100%;
+    object-position: top;
+    object-fit: cover;
+  }
 
-	&-detail-name {
-		font-weight: 300;
-		font-size: 16px;
-	}
+  &-detail {
+    color: var(--lighter-dark);
+    gap: 8px;
+  }
 
-	&-price-slashed {
-		color: var(--lightest-gray);
-		font-size: 20px;
-	}
+  &-detail-name {
+    font-weight: 300;
+    font-size: 16px;
+  }
 
-	&-price {
-		font-size: 20px;
-	}
+  &-price-slashed {
+    color: var(--lightest-gray);
+    font-size: 20px;
+  }
+
+  &-price {
+    font-size: 20px;
+  }
 }
 
 @include mixins.mobile {
-	.product {
-		&-content {
-			gap: 4px;
+  .product {
+    &-content {
+      gap: 4px;
 
-			& > .badge {
-				top: 8px;
-				left: 8px;
-			}
-		}
+      & > .badge {
+        top: 8px;
+        left: 8px;
+      }
+    }
 
-		&-image-wrapper {
-			height: var(--product-image-mobile-height);
-		}
+    &-image-wrapper {
+      height: var(--product-image-mobile-height);
+    }
 
-		&-detail-name {
-			font-size: 12px;
-		}
+    &-detail-name {
+      font-size: 12px;
+    }
 
-		&-price-slashed {
-			font-size: 10px;
-		}
+    &-price-slashed {
+      font-size: 10px;
+    }
 
-		&-price {
-			font-size: 10px;
-		}
-	}
+    &-price {
+      font-size: 10px;
+    }
+  }
 }
