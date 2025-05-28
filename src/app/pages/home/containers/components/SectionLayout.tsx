@@ -19,14 +19,14 @@ export const SectionLayout = ({
           {title && (
             <>
               {typeof title === "string" ? (
-                <h2 className="section-title">Why should you choose us?</h2>
+                <h2 className="section-title">{title}</h2>
               ) : (
                 title
               )}
             </>
           )}
 
-          {children}
+          <ul className="d-grid value-list">{children}</ul>
         </div>
       </div>
     </section>

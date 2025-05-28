@@ -26,8 +26,8 @@ export const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
         <div className="card-image-wrapper product-image-wrapper">
           <img
             className="card-image product-image"
-            src={product?.image}
-            alt={product?.alt}
+            src={product?.image?.url}
+            alt={product?.image?.alt}
           />
         </div>
 

@@ -1,6 +1,6 @@
 import { NavigateButton } from "../../../../components/NavigateButton";
 
-const NotFound = () => {
+const NotFound: React.FC = () => {
   return (
     <section className="section section-notfound d-flex items-center justify-center">
       <div className="notfound-container">

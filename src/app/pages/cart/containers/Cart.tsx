@@ -6,7 +6,7 @@ import type { CartItem } from "../../../../constants/types";
 import { Button } from "../../../../components/Button";
 import { useState, type ChangeEvent } from "react";
 
-const Cart = () => {
+const Cart: React.FC = () => {
   const { cart, calculateTotal, calculateCartTotal } = useCartContext();
 
   const [inputValue, setInputValue] = useState<string>("");
@@ -65,7 +65,9 @@ const Cart = () => {
                       </tr>
                     ))
                   ) : (
-                    <tr>Cart is empty!</tr>
+                    <tr className="cart-empty-item">
+                      <td className="cart-empty-text">Cart is empty!</td>
+                    </tr>
                   )}
                 </tbody>
               </table>
@@ -103,8 +105,8 @@ const Cart = () => {
                     className="voucher-input"
                     id="voucher-input"
                     type="text"
-                    placeholder="Enter code..."
                     value={inputValue}
+                    placeholder="Enter code..."
                     onChange={(event) => handOnInputChange(event)}
                   />
                 </form>
@@ -121,8 +123,8 @@ const Cart = () => {
                 <Button
                   className="button-checkout"
                   label="Checkout"
-                  onClick={() => {}}
                   isPrimary
+                  onClick={() => {}}
                 />
               </div>
             </aside>

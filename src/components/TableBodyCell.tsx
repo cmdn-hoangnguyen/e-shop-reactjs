@@ -40,7 +40,15 @@ export const TableBodyCell = ({
       case 1:
         return (
           <div className="cart-item-image-wrapper">
-            <img className="cart-item-image" src={item.image} alt={item.name} />
+            <img
+              className="cart-item-image"
+              src={item?.image?.url}
+              alt={item.name}
+            />
+
+            <button className="button-delete" onClick={handleDeleteItem}>
+              <IconWrapper iconClass="icon-trash" />
+            </button>
           </div>
         );
       case 2:
@@ -81,14 +89,6 @@ export const TableBodyCell = ({
             <p className="cart-item-total-price color-primary">
               ${calculateTotal(item?.price, item?.quantity)}
             </p>
-          </div>
-        );
-      case 5:
-        return (
-          <div className="cart-item-content d-flex items-center justify-center">
-            <button className="button-delete" onClick={handleDeleteItem}>
-              <IconWrapper iconClass="icon-trash" />
-            </button>
           </div>
         );
       default:

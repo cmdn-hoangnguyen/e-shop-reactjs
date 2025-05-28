@@ -53,20 +53,29 @@ export const valuesData: Service[] = [
 
 export const promotionsData: PromotionItem[] = [
   {
-    image: "/images/promotion-arrival.png",
-    alt: "New arrivals",
+    id: 1,
+    image: {
+      url: "/images/promotion-arrival.png",
+      alt: "New arrivals",
+    },
     title: "New arrivals are now in!",
     buttonLabel: "SHOW COLLECTION",
   },
   {
-    image: "/images/promotion-tshirt.png",
-    alt: "promotion tshirt",
+    id: 2,
+    image: {
+      url: "/images/promotion-tshirt.png",
+      alt: "promotion tshirt",
+    },
     title: "Basic t-shirts\n$29,99",
     buttonLabel: "MORE DETAILS",
   },
   {
-    image: "/images/promotion-sale.png",
-    alt: "promotion sale",
+    id: 3,
+    image: {
+      url: "/images/promotion-sale.png",
+      alt: "promotion sale",
+    },
     badge: "-50%",
     title: "Sale this\nsummer",
     buttonLabel: "VIEW ALL",
@@ -157,9 +166,8 @@ export const cartTableItems: tableColumnItem[] = [
   { title: "No", className: "col-lg-1" },
   { title: "Product", className: "col-lg-3" },
   { title: "Detail info", className: "col-lg-3" },
-  { title: "Quantity", className: "col-lg-2" },
+  { title: "Quantity", className: "col-lg-3" },
   { title: "Total", className: "col-lg-2" },
-  { title: "", className: "col-lg-1" },
 ];
 
 export const voucherData: { [key: string]: number } = {

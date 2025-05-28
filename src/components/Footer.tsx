@@ -10,7 +10,7 @@ export const Footer = () => {
           <div className="footer-top-content d-grid">
             <div className="footer-top-content-item d-flex-col col-lg-6 col-md-12">
               <a className="logo-content d-flex items-center" href="/#">
-                <i className="icon icon-cloth"></i>
+                <IconWrapper iconClass="icon-cloth" />
                 <span>E-Shop</span>
               </a>
 

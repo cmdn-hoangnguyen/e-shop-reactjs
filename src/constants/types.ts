@@ -6,12 +6,16 @@ export interface Service {
   description: string;
 }
 
+export interface Image {
+  url: string;
+  alt: string;
+}
+
 export interface Product {
   id: number;
   name: string;
   price: number;
-  image: string;
-  alt: string;
+  image: Image;
   discount: number;
 }
 
@@ -30,8 +34,8 @@ export interface Cart {
 }
 
 export interface PromotionItem {
-  image: string;
-  alt: string;
+  id: number;
+  image: Image;
   title: string;
   buttonLabel: string;
   badge?: string;

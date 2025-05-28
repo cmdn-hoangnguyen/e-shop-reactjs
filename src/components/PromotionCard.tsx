@@ -21,8 +21,8 @@ export const PromotionCard = ({ promotion, index }: PromotionCardProps) => {
       <div className="card-image-wrapper promotion-image-wrapper">
         <img
           className="card-image promotion-image"
-          src={promotion?.image}
-          alt={promotion?.alt}
+          src={promotion?.image?.url}
+          alt={promotion?.image?.alt}
         />
       </div>
 
