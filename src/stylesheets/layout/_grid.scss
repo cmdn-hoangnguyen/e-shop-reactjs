@@ -1,4 +1,4 @@
-@use "../abstracts/mixins";
+@use '../abstracts/mixins';
 
 .d-grid {
   display: grid;
@@ -30,6 +30,10 @@
 
 .justify-items-end {
   justify-items: end;
+}
+
+.justify-items-center {
+  justify-items: center;
 }
 
 @include mixins.tablet {

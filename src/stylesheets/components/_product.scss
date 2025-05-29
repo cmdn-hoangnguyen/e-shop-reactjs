@@ -1,8 +1,12 @@
-@use "../abstracts/mixins";
+@use '../abstracts/mixins';
 
 .product {
   &-content-wrapper {
     gap: 14px;
+
+    .button {
+      width: 100%;
+    }
   }
 
   &-content {

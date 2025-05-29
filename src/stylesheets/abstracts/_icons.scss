@@ -1,4 +1,4 @@
-@use "../abstracts/mixins";
+@use '../abstracts/mixins';
 
 /*---------------------------- ICON ----------------------------*/
 .icon {
@@ -13,82 +13,82 @@
   }
 
   &-arrow-right {
-    background-image: url("../assets/icons/icon-arrow-right.svg");
+    background-image: url('../assets/icons/icon-arrow-right.svg');
     width: 17px;
     height: 14px;
   }
 
   &-cloth {
-    background-image: url("../assets/icons/icon-cloth.svg");
+    background-image: url('../assets/icons/icon-cloth.svg');
     width: 41.2px;
     height: 34.82px;
   }
 
   &-search {
-    background-image: url("../assets/icons/icon-search.svg");
+    background-image: url('../assets/icons/icon-search.svg');
   }
 
   &-user {
-    background-image: url("../assets/icons/icon-user.svg");
+    background-image: url('../assets/icons/icon-user.svg');
   }
 
   &-cart {
-    background-image: url("../assets/icons/icon-cart.svg");
+    background-image: url('../assets/icons/icon-cart.svg');
   }
 
   &-happy {
-    background-image: url("../assets/icons/icon-happy.svg");
+    background-image: url('../assets/icons/icon-happy.svg');
   }
 
   &-guarantee {
-    background-image: url("../assets/icons/icon-guarantee.svg");
+    background-image: url('../assets/icons/icon-guarantee.svg');
   }
 
   &-delivery {
-    background-image: url("../assets/icons/icon-delivery.svg");
+    background-image: url('../assets/icons/icon-delivery.svg');
   }
 
   &-large-delivery {
-    background-image: url("../assets/icons/icon-large-delivery.svg");
+    background-image: url('../assets/icons/icon-large-delivery.svg');
   }
 
   &-large-transaction {
-    background-image: url("../assets/icons/icon-large-transaction.svg");
+    background-image: url('../assets/icons/icon-large-transaction.svg');
   }
 
   &-large-guarantee {
-    background-image: url("../assets/icons/icon-large-guarantee.svg");
+    background-image: url('../assets/icons/icon-large-guarantee.svg');
   }
 
   &-large-material {
-    background-image: url("../assets/icons/icon-large-material.svg");
+    background-image: url('../assets/icons/icon-large-material.svg');
   }
 
   &-facebook {
-    background-image: url("../assets/icons/icon-facebook.svg");
+    background-image: url('../assets/icons/icon-facebook.svg');
   }
 
   &-instagram {
-    background-image: url("../assets/icons/icon-instagram.svg");
+    background-image: url('../assets/icons/icon-instagram.svg');
   }
 
   &-linkedin {
-    background-image: url("../assets/icons/icon-linkedin.svg");
+    background-image: url('../assets/icons/icon-linkedin.svg');
   }
 
   &-youtube {
-    background-image: url("../assets/icons/icon-youtube.svg");
+    background-image: url('../assets/icons/icon-youtube.svg');
   }
 
   &-tiktok {
-    background-image: url("../assets/icons/icon-tiktok.svg");
+    background-image: url('../assets/icons/icon-tiktok.svg');
     width: 24px;
     height: 24px;
     margin-top: -2px;
   }
 
   &-trash {
-    background-image: url("../assets/icons/icon-trash.svg");
+    background-image: url('../assets/icons/icon-trash.svg');
   }
 }
 
@@ -104,7 +104,7 @@
 
 .social-icon {
   min-width: 20px;
-  height: 20px;
+  min-height: 20px;
 }
 
 @include mixins.mobile {
@@ -115,15 +115,15 @@
     }
 
     &-search {
-      background-image: url("../assets/icons/icon-search-default.svg");
+      background-image: url('../assets/icons/icon-search-default.svg');
     }
 
     &-user {
-      background-image: url("../assets/icons/icon-user-default.svg");
+      background-image: url('../assets/icons/icon-user-default.svg');
     }
 
     &-cart {
-      background-image: url("../assets/icons/icon-cart-default.svg");
+      background-image: url('../assets/icons/icon-cart-default.svg');
     }
   }
 

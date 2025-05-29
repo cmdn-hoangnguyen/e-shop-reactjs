@@ -1,4 +1,4 @@
-@use "../abstracts/mixins";
+@use '../abstracts/mixins';
 
 .button {
   position: relative;
@@ -12,7 +12,7 @@
   cursor: pointer;
   transition: var(--transition-value);
 
-  &-navigation {
+  &-default {
     color: var(--lighter-dark);
     background-color: var(--white);
 
@@ -29,6 +29,11 @@
     &:hover {
       filter: brightness(110%);
     }
+  }
+
+  &-secondary {
+    color: var(--lighter-dark);
+    background-color: var(--secondary);
   }
 
   &-add-to-card {
@@ -63,21 +68,14 @@
   &-quantity {
     width: 25px;
     height: 25px;
-    border-radius: 100px;
     border: none;
-    background-color: var(--secondary);
     font-size: 16px;
     cursor: pointer;
   }
 
-  &-delete {
-    border: none;
-    background-color: transparent;
+  &-full-rounded {
+    border-radius: 100px;
     cursor: pointer;
-
-    &:hover i {
-      background-image: url(../assets/icons/icon-trash-red.svg);
-    }
 
     i {
       display: inline-block;

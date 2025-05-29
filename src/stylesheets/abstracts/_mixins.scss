@@ -1,18 +1,18 @@
 /*=========================== BREAKPOINT ===========================*/
 @mixin desktop-xl {
   @media (min-width: 1440px) {
-    @content
+    @content;
   }
-};
+}
 
 @mixin tablet {
   @media (max-width: 1023px) {
-    @content
+    @content;
   }
-};
+}
 
 @mixin mobile {
   @media (max-width: 767px) {
-    @content
+    @content;
   }
-};
+}
