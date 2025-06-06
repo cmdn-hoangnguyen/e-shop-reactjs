@@ -1,16 +1,22 @@
-import { useState, type ChangeEvent } from 'react';
+import { useEffect, useState, type ChangeEvent } from 'react';
 
 import clsx from 'clsx';
 
 import { Button } from '../../../../components/Button';
-import { TableBodyCell } from '../../../../components/TableBodyCell';
 import { cartTableItems } from '../../../../constants/data';
 import { BUTTON_THEME, COLOR_THEME } from '../../../../constants/enum';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../../../redux/store';
+import { getItemsFromLocalStorage } from '../../../../redux/thunks/cartThunk';
+import { useAppDispatch } from '../../../../redux/hooks/useAppDispatch';
+import { TableBodyCell } from '../../../../components/TableBodyCell';
 import type { CartItem } from '../../../../constants/types';
-import { useCartContext } from '../../../../contexts/CartContext';
 
 const Cart: React.FC = () => {
-  const { cart, calculateTotal, calculateCartTotal } = useCartContext();
+  // const { cart, calculateTotal, calculateCartTotal } = useCartContext();
+
+  const dispatch = useAppDispatch();
+  const cart = useSelector((state: RootState) => state.cart.cart);
 
   const [inputValue, setInputValue] = useState<string>('');
 
@@ -18,6 +24,10 @@ const Cart: React.FC = () => {
     const target = event.target as HTMLInputElement;
     setInputValue(target.value.toLowerCase());
   };
+
+  useEffect(() => {
+    dispatch(getItemsFromLocalStorage());
+  }, []);
 
   return (
     <main className="main">
@@ -76,7 +86,7 @@ const Cart: React.FC = () => {
                           <span className="cart-summary-quantity">x{item.quantity}</span>
                         </div>
                         <span className="cart-item-value">
-                          ${calculateTotal(item?.price, item?.quantity)}
+                          {/* ${calculateTotal(item?.price, item?.quantity)} */}
                         </span>
                       </div>
                     </li>
@@ -98,7 +108,7 @@ const Cart: React.FC = () => {
                   <p className="cart-summary-total-detail d-flex justify-between items-center">
                     Cart total:
                     <span className="cart-summary-total-detail-value">
-                      ${calculateCartTotal(inputValue)}
+                      {/* ${calculateCartTotal(inputValue)} */}
                     </span>
                   </p>
                 </div>

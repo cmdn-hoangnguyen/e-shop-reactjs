@@ -30,3 +30,14 @@ export type BADGE_COLOR_THEME = COLOR_THEME.DANGER;
 export enum BADGE_THEME {
   DEFAULT = 'DEFAULT',
 }
+
+export enum LOCAL_STORAGE_KEY {
+  CART = 'cart',
+}
+
+export enum TOAST_MESSAGE {
+  SUCCESS_ADD_PRODUCT_TO_CART = 'Product added to cart successfully!',
+  CONFIRM_DELETE_PRODUCT_FROM_CART = 'Do you want to delete this product?',
+  SUCCESS_DELETE_PRODUCT_FROM_CART = 'Product removed from cart successfully!',
+  CANCEL_DELETE_PRODUCT_FROM_CART = 'Canceled removing product from cart.',
+}
