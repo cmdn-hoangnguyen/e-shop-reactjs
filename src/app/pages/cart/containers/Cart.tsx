@@ -11,10 +11,9 @@ import { getItemsFromLocalStorage } from '../../../../redux/thunks/cartThunk';
 import { useAppDispatch } from '../../../../redux/hooks/useAppDispatch';
 import { TableBodyCell } from '../../../../components/TableBodyCell';
 import type { CartItem } from '../../../../constants/types';
+import { calculateCartTotal, calculateTotal } from '../../../../utils/cart';
 
 const Cart: React.FC = () => {
-  // const { cart, calculateTotal, calculateCartTotal } = useCartContext();
-
   const dispatch = useAppDispatch();
   const cart = useSelector((state: RootState) => state.cart.cart);
 
@@ -86,7 +85,7 @@ const Cart: React.FC = () => {
                           <span className="cart-summary-quantity">x{item.quantity}</span>
                         </div>
                         <span className="cart-item-value">
-                          {/* ${calculateTotal(item?.price, item?.quantity)} */}
+                          ${calculateTotal(item?.price, item?.quantity)}
                         </span>
                       </div>
                     </li>
@@ -108,7 +107,7 @@ const Cart: React.FC = () => {
                   <p className="cart-summary-total-detail d-flex justify-between items-center">
                     Cart total:
                     <span className="cart-summary-total-detail-value">
-                      {/* ${calculateCartTotal(inputValue)} */}
+                      ${calculateCartTotal(inputValue, cart)}
                     </span>
                   </p>
                 </div>

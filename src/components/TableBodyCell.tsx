@@ -1,12 +1,12 @@
-import { useEffect, type JSX } from 'react';
+import { type JSX } from 'react';
 
 import { Button } from './Button';
 import { IconWrapper } from './IconWrapper';
 import { BUTTON_THEME, COLOR_THEME } from '../constants/enum';
 import type { CartItem } from '../constants/types';
-import { useCartContext } from '../contexts/CartContext';
 import { useAppDispatch } from '../redux/hooks/useAppDispatch';
-import { deleteItemFromCart, getItemsFromLocalStorage } from '../redux/thunks/cartThunk';
+import { deleteItemFromCart, updateItemQuantity } from '../redux/thunks/cartThunk';
+import { calculateTotal, discountPrice } from '../utils/cart';
 
 interface TableBodyCellProps {
   item: CartItem;
@@ -15,16 +15,15 @@ interface TableBodyCellProps {
 }
 
 export const TableBodyCell = ({ item, colIndex, index }: TableBodyCellProps): JSX.Element => {
-  // const { discountPrice, calculateTotal, deleteItem, updateItemQuantity } = useCartContext();
   const dispatch = useAppDispatch();
 
   const handleIncreaseQuantity = () => {
-    // updateItemQuantity(item.id, item.quantity + 1);
+    dispatch(updateItemQuantity(item?.id, item?.quantity + 1));
   };
 
   const handleDecreaseQuantity = () => {
     if (item.quantity > 1) {
-      // updateItemQuantity(item.id, item.quantity - 1);
+      dispatch(updateItemQuantity(item?.id, item?.quantity - 1));
     } else {
       handleDeleteItem();
     }
@@ -58,9 +57,7 @@ export const TableBodyCell = ({ item, colIndex, index }: TableBodyCellProps): JS
           <div className="cart-item-content d-flex-col justify-center">
             <h3 className="cart-item-name">{item?.name}</h3>
             <div className="cart-item-price d-flex">
-              <span className="cart-item-price-final color-primary">
-                {/* ${discountPrice(item)} */}
-              </span>
+              <span className="cart-item-price-final color-primary">${discountPrice(item)}</span>
               {!!item?.discount && <s className="cart-item-price-original">{item?.price}</s>}
             </div>
           </div>
@@ -93,7 +90,7 @@ export const TableBodyCell = ({ item, colIndex, index }: TableBodyCellProps): JS
         return (
           <div className="cart-item-content d-flex items-center">
             <p className="cart-item-total-price color-primary">
-              {/* ${calculateTotal(item?.price, item?.quantity)} */}
+              ${calculateTotal(item?.price, item?.quantity)}
             </p>
           </div>
         );

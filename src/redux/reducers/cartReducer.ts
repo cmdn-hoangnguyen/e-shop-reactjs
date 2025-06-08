@@ -5,7 +5,7 @@ import {
   UPDATE_ITEM_QUANTITY,
   type CartActionTypes,
   type CartState,
-} from '../types';
+} from '../types/cartTypes';
 
 const initialState: CartState = {
   cart: [],

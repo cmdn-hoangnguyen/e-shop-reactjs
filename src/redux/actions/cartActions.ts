@@ -1,5 +1,5 @@
 import type { CartItem } from '../../constants/types';
-import { ADD_TO_CART, DELETE_FROM_CART, GET_CART, UPDATE_ITEM_QUANTITY } from '../types';
+import { ADD_TO_CART, DELETE_FROM_CART, GET_CART, UPDATE_ITEM_QUANTITY } from '../types/cartTypes';
 
 export const addToCart = (item: CartItem) => ({
   type: ADD_TO_CART,

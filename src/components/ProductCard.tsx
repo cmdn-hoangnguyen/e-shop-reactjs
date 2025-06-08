@@ -6,14 +6,13 @@ import { BADGE_THEME, BUTTON_THEME, COLOR_THEME } from '../constants/enum';
 import type { CartItem, Product } from '../constants/types';
 import { addItemToCart } from '../redux/thunks/cartThunk';
 import { useAppDispatch } from '../redux/hooks/useAppDispatch';
+import { discountPrice } from '../utils/cart';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
-  // const { addToCart, discountPrice } = useCartContext();
-
   const dispatch = useAppDispatch();
 
   const handleAddToCart = (): void => {
@@ -43,14 +42,12 @@ export const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
             {product.discount ? (
               <>
                 <strong className="product-price high-light">
-                  {/* ${discountPrice(product as CartItem)} */}
+                  ${discountPrice(product as CartItem)}
                 </strong>
                 <s className="product-price-slashed">${product.price}</s>
               </>
             ) : (
-              <strong className="product-price">
-                {/* ${discountPrice(product as CartItem)} */}
-              </strong>
+              <strong className="product-price">${discountPrice(product as CartItem)}</strong>
             )}
           </div>
         </div>
