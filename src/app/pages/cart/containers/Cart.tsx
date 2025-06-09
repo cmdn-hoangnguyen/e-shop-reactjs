@@ -3,14 +3,16 @@ import { useState, type ChangeEvent } from 'react';
 import clsx from 'clsx';
 
 import { Button } from '../../../../components/Button';
-import { TableBodyCell } from '../../../../components/TableBodyCell';
 import { cartTableItems } from '../../../../constants/data';
 import { BUTTON_THEME, COLOR_THEME } from '../../../../constants/enum';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../../../redux/store';
+import { TableBodyCell } from '../../../../components/TableBodyCell';
 import type { CartItem } from '../../../../constants/types';
-import { useCartContext } from '../../../../contexts/CartContext';
+import { calculateCartTotal, calculateTotal } from '../../../../utils/cart';
 
 const Cart: React.FC = () => {
-  const { cart, calculateTotal, calculateCartTotal } = useCartContext();
+  const cart = useSelector((state: RootState) => state.cart.cart);
 
   const [inputValue, setInputValue] = useState<string>('');
 
@@ -98,7 +100,7 @@ const Cart: React.FC = () => {
                   <p className="cart-summary-total-detail d-flex justify-between items-center">
                     Cart total:
                     <span className="cart-summary-total-detail-value">
-                      ${calculateCartTotal(inputValue)}
+                      ${calculateCartTotal(inputValue, cart)}
                     </span>
                   </p>
                 </div>

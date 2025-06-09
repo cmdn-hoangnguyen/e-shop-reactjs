@@ -9,12 +9,12 @@ import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 const CartContext = createContext<Cart | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, getCart] = useState<CartItem[]>([]);
   const isFirstLoad = useRef(true);
 
   useEffect(() => {
     const data = getLocalStorage<CartItem[]>('cart') || [];
-    setCart(data);
+    getCart(data);
   }, []);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
       updatedCart = [...cart, selectedProduct];
     }
 
-    setCart(updatedCart);
+    getCart(updatedCart);
     toast.success('Product added to cart successfully!');
   };
 
@@ -73,7 +73,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
     if (isConfirmed) {
       const updatedCart = cart.filter((item) => item.id !== productId);
-      setCart(updatedCart);
+      getCart(updatedCart);
 
       toast.success('Product removed from cart successfully!');
 
@@ -84,7 +84,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const updateItemQuantity = (productId: number, quantity: number): void => {
-    setCart((prevCart) =>
+    getCart((prevCart) =>
       prevCart.map((item) => (item.id === productId ? { ...item, quantity } : item))
     );
   };

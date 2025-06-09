@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import type { Product } from '../constants/types';
 
 export const useGetProduct = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, getProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -12,7 +12,7 @@ export const useGetProduct = () => {
         if (!response.ok) throw new Error('Failed to fetch');
 
         const data = await response.json();
-        return setProducts(data);
+        return getProducts(data);
       } catch (error) {
         console.error('Fetch product error:', error);
       }

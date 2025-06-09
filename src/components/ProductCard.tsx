@@ -2,16 +2,19 @@ import type { JSX } from 'react';
 
 import { Badge } from './Badge';
 import { Button } from './Button';
-import { BADGE_THEME, BUTTON_THEME, COLOR_THEME } from '../constants/enum';
+import { BADGE_THEME, BUTTON_THEME, COLOR_THEME, TOAST_MESSAGE } from '../constants/enum';
 import type { CartItem, Product } from '../constants/types';
-import { useCartContext } from '../contexts/CartContext';
+import { discountPrice } from '../utils/cart';
+import { addToCart } from '../redux/actions/cartActions';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
-  const { addToCart, discountPrice } = useCartContext();
+  const dispatch = useDispatch();
 
   const handleAddToCart = (): void => {
     const quantity: number = 1;
@@ -20,7 +23,8 @@ export const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
       quantity,
     };
 
-    addToCart(cartItem);
+    dispatch(addToCart(cartItem));
+    toast.success(TOAST_MESSAGE.SUCCESS_ADD_PRODUCT_TO_CART);
   };
 
   return (
