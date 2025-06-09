@@ -16,7 +16,7 @@ export const updateQuantity = (id: number, quantity: number) => ({
   payload: { id, quantity },
 });
 
-export const setCart = (items: CartItem[]) => ({
+export const getCart = (items: CartItem[]) => ({
   type: GET_CART,
   payload: items,
 });

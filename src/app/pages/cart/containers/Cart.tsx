@@ -7,11 +7,11 @@ import { cartTableItems } from '../../../../constants/data';
 import { BUTTON_THEME, COLOR_THEME } from '../../../../constants/enum';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../../../redux/store';
-import { getItemsFromLocalStorage } from '../../../../redux/thunks/cartThunk';
 import { useAppDispatch } from '../../../../redux/hooks/useAppDispatch';
 import { TableBodyCell } from '../../../../components/TableBodyCell';
 import type { CartItem } from '../../../../constants/types';
 import { calculateCartTotal, calculateTotal } from '../../../../utils/cart';
+import { loadItemsFromLocalStorage } from '../../../../redux/thunks/cartThunk';
 
 const Cart: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -25,8 +25,8 @@ const Cart: React.FC = () => {
   };
 
   useEffect(() => {
-    dispatch(getItemsFromLocalStorage());
-  }, []);
+    dispatch(loadItemsFromLocalStorage());
+  }, [dispatch]);
 
   return (
     <main className="main">

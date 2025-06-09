@@ -1,11 +1,12 @@
-// store/index.ts
 import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
 import { cartReducer } from './reducers/cartReducer';
 import { thunk } from 'redux-thunk';
 import { localStorageMiddleWare } from './middleware';
+import { productReducer } from './reducers/productReducers';
 
 const rootReducer = combineReducers({
   cart: cartReducer,
+  product: productReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

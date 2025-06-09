@@ -7,9 +7,9 @@ import { IconWrapper } from './IconWrapper';
 import { headerActionListItems, navigationListItems } from '../constants/data';
 import { BUTTON_THEME } from '../constants/enum';
 import { useAppDispatch } from '../redux/hooks/useAppDispatch';
-import { getItemsFromLocalStorage } from '../redux/thunks/cartThunk';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../redux/store';
+import { loadItemsFromLocalStorage } from '../redux/thunks/cartThunk';
 
 export const Header = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -17,7 +17,7 @@ export const Header = (): JSX.Element => {
   const cart = useSelector((state: RootState) => state.cart.cart);
 
   useEffect(() => {
-    dispatch(getItemsFromLocalStorage());
+    dispatch(loadItemsFromLocalStorage());
   }, [dispatch]);
 
   const pathname = window.location.pathname;

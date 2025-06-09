@@ -9,10 +9,20 @@ import { ServiceList } from '../../../../components/ServiceList';
 import { featuresData, promotionsData, valuesData } from '../../../../constants/data';
 import { BUTTON_THEME, COLOR_THEME, MAIN_CONTENT } from '../../../../constants/enum';
 import type { PromotionItem } from '../../../../constants/types';
-import { useGetProduct } from '../../../../hooks/useGetProduct';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import type { RootState } from '../../../../redux/store';
+import { useAppDispatch } from '../../../../redux/hooks/useAppDispatch';
+import { loadProducts } from '../../../../redux/thunks/productThunk';
 
 const Home: React.FC = () => {
-  const { products } = useGetProduct();
+  const products = useSelector((state: RootState) => state.product.products);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(loadProducts());
+  }, [dispatch]);
 
   return (
     <main className="main">

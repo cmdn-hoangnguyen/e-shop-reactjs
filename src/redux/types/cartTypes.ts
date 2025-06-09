@@ -24,7 +24,7 @@ export interface UpdateQuantityAction {
   payload: { id: number; quantity: number };
 }
 
-export interface SetCartAction {
+export interface GetCartAction {
   type: typeof GET_CART;
   payload: CartItem[];
 }
@@ -33,4 +33,4 @@ export type CartActionTypes =
   | AddToCartAction
   | DeleteFromCartAction
   | UpdateQuantityAction
-  | SetCartAction;
+  | GetCartAction;

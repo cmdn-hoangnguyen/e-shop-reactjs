@@ -1,14 +1,14 @@
 import { toast } from 'react-toastify';
 import { getLocalStorage } from '../../utils/localStorage';
 import type { CartItem } from '../../constants/types';
-import { addToCart, deleteFromCart, setCart, updateQuantity } from '../actions/cartActions';
+import { addToCart, deleteFromCart, getCart, updateQuantity } from '../actions/cartActions';
 import { LOCAL_STORAGE_KEY, TOAST_MESSAGE } from '../../constants/enum';
 import type { AppDispatch } from '../store';
 
-export const getItemsFromLocalStorage = () => {
+export const loadItemsFromLocalStorage = () => {
   return (dispatch: AppDispatch) => {
     const data: CartItem[] = getLocalStorage(LOCAL_STORAGE_KEY.CART) ?? [];
-    dispatch(setCart(data));
+    dispatch(getCart(data));
   };
 };
 

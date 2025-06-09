@@ -41,3 +41,7 @@ export enum TOAST_MESSAGE {
   SUCCESS_DELETE_PRODUCT_FROM_CART = 'Product removed from cart successfully!',
   CANCEL_DELETE_PRODUCT_FROM_CART = 'Canceled removing product from cart.',
 }
+
+export enum ERROR_MESSAGE {
+  FAIL_FETCHING_PRODUCTS = 'Failed to fetch products',
+}
