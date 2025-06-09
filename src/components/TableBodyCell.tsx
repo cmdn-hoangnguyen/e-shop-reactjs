@@ -2,11 +2,12 @@ import { type JSX } from 'react';
 
 import { Button } from './Button';
 import { IconWrapper } from './IconWrapper';
-import { BUTTON_THEME, COLOR_THEME } from '../constants/enum';
+import { BUTTON_THEME, COLOR_THEME, TOAST_MESSAGE } from '../constants/enum';
 import type { CartItem } from '../constants/types';
-import { useAppDispatch } from '../redux/hooks/useAppDispatch';
-import { deleteItemFromCart, updateItemQuantity } from '../redux/thunks/cartThunk';
 import { calculateTotal, discountPrice } from '../utils/cart';
+import { deleteFromCart, updateQuantity } from '../redux/actions/cartActions';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 interface TableBodyCellProps {
   item: CartItem;
@@ -15,22 +16,29 @@ interface TableBodyCellProps {
 }
 
 export const TableBodyCell = ({ item, colIndex, index }: TableBodyCellProps): JSX.Element => {
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
 
   const handleIncreaseQuantity = () => {
-    dispatch(updateItemQuantity(item?.id, item?.quantity + 1));
+    dispatch(updateQuantity(item?.id, item?.quantity + 1));
   };
 
   const handleDecreaseQuantity = () => {
     if (item.quantity > 1) {
-      dispatch(updateItemQuantity(item?.id, item?.quantity - 1));
+      dispatch(updateQuantity(item?.id, item?.quantity - 1));
     } else {
       handleDeleteItem();
     }
   };
 
   const handleDeleteItem = () => {
-    dispatch(deleteItemFromCart(item?.id));
+    const isConfirmed = window.confirm(TOAST_MESSAGE.CONFIRM_DELETE_PRODUCT_FROM_CART);
+
+    if (isConfirmed) {
+      dispatch(deleteFromCart(item?.id));
+
+      return toast.success(TOAST_MESSAGE.SUCCESS_DELETE_PRODUCT_FROM_CART);
+    }
+    toast.info(TOAST_MESSAGE.CANCEL_DELETE_PRODUCT_FROM_CART);
   };
 
   const renderCellContent = (): JSX.Element => {

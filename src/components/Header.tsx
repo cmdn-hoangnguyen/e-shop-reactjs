@@ -6,19 +6,11 @@ import { Button } from './Button';
 import { IconWrapper } from './IconWrapper';
 import { headerActionListItems, navigationListItems } from '../constants/data';
 import { BUTTON_THEME } from '../constants/enum';
-import { useAppDispatch } from '../redux/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../redux/store';
-import { loadItemsFromLocalStorage } from '../redux/thunks/cartThunk';
 
 export const Header = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-
   const cart = useSelector((state: RootState) => state.cart.cart);
-
-  useEffect(() => {
-    dispatch(loadItemsFromLocalStorage());
-  }, [dispatch]);
 
   const pathname = window.location.pathname;
 

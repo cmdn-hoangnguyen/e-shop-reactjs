@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent } from 'react';
+import { useState, type ChangeEvent } from 'react';
 
 import clsx from 'clsx';
 
@@ -7,14 +7,11 @@ import { cartTableItems } from '../../../../constants/data';
 import { BUTTON_THEME, COLOR_THEME } from '../../../../constants/enum';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../../../redux/store';
-import { useAppDispatch } from '../../../../redux/hooks/useAppDispatch';
 import { TableBodyCell } from '../../../../components/TableBodyCell';
 import type { CartItem } from '../../../../constants/types';
 import { calculateCartTotal, calculateTotal } from '../../../../utils/cart';
-import { loadItemsFromLocalStorage } from '../../../../redux/thunks/cartThunk';
 
 const Cart: React.FC = () => {
-  const dispatch = useAppDispatch();
   const cart = useSelector((state: RootState) => state.cart.cart);
 
   const [inputValue, setInputValue] = useState<string>('');
@@ -23,10 +20,6 @@ const Cart: React.FC = () => {
     const target = event.target as HTMLInputElement;
     setInputValue(target.value.toLowerCase());
   };
-
-  useEffect(() => {
-    dispatch(loadItemsFromLocalStorage());
-  }, [dispatch]);
 
   return (
     <main className="main">

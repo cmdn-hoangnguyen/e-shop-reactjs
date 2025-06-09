@@ -1,21 +1,19 @@
+import { LOCAL_STORAGE_KEY } from '../../constants/enum';
+import { getLocalStorage } from '../../utils/localStorage';
 import {
   ADD_TO_CART,
   DELETE_FROM_CART,
-  GET_CART,
   UPDATE_ITEM_QUANTITY,
   type CartActionTypes,
   type CartState,
 } from '../types/cartTypes';
 
 const initialState: CartState = {
-  cart: [],
+  cart: getLocalStorage(LOCAL_STORAGE_KEY.CART) ?? [],
 };
 
 export const cartReducer = (state = initialState, action: CartActionTypes) => {
   switch (action.type) {
-    case GET_CART:
-      return { ...state, cart: action.payload };
-
     case ADD_TO_CART: {
       const existing = state.cart.find((item) => item.id === action.payload.id);
 
